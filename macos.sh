@@ -54,11 +54,11 @@ sudo tmutil disable
 # Disable hibernation (speeds up entering sleep mode)
 sudo pmset -a hibernatemode 0
 
-# Remove the sleep image file to save disk space
+# Remove the sleep image file to save disk space (SIP needs to be disable on High Sierra or above)
 sudo rm /private/var/vm/sleepimage
-# Create a zero-byte file instead…
+# Create a zero-byte file instead… (SIP needs to be disable on High Sierra or above)
 sudo touch /private/var/vm/sleepimage
-# …and make sure it can't be rewritten
+# …and make sure it can't be rewritten (SIP needs to be disable on High Sierra or above)
 sudo chflags uchg /private/var/vm/sleepimage
 
 # Disable the sudden motion sensor as it's not useful for SSDs
@@ -335,7 +335,7 @@ defaults write com.apple.Safari UniversalSearchEnabled -bool false
 defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
 # Show the full URL in the address bar (note: this still hides the scheme)
-# defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 # Set Safari's home page to `about:blank` for faster loading
 # defaults write com.apple.Safari HomePage -string "about:blank"
